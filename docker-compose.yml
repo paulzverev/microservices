@@ -5,10 +5,10 @@ services:
     environment:
       POSTGRES_USER: paulzverev
       POSTGRES_PASSWORD: password
-      POSTGRES_DB: mydatabase
       PGDATA: /data/postgres
     volumes:
       - postgres:/data/postgres
+      - ./init-databases.sql:/docker-entrypoint-initdb.d/init-databases.sql
     ports:
       - "5432:5432"
     networks:
